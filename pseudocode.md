@@ -1,9 +1,9 @@
-'''
+
 START 
 DECLARE i, minDay AS Integer
 DECLARE c,f,minC AS REAL
 DECLARE level,ClothingTip AS String
-minC=10
+minC=100
 minDay=0
 FOR i=1 TO 7
     INPUT c
@@ -29,4 +29,4 @@ FOR i=1 TO 7
 END FOR
 OUTPUT "Hamgiin huiten udur: " & minDay & "-r udur, " & minC & "C"
 END
-'''
+
