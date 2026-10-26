@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<flowgorithm fileversion="4.2">
+    <attributes>
+        <attribute name="name" value="quest"/>
+        <attribute name="authors" value="X13"/>
+        <attribute name="about" value=""/>
+        <attribute name="saved" value="2026-10-25 05:30:05 PM"/>
+        <attribute name="created" value="WDEzO1NBRElPOzIwMjYtMTAtMjU7MDE6MTM6NTkgUE07MTgzNw=="/>
+        <attribute name="edited" value="WDEzO1NBRElPOzIwMjYtMTAtMjU7MDU6MzA6MDUgUE07MjsxOTQw"/>
+    </attributes>
+    <function name="Main" type="None" variable="">
+        <parameters/>
+        <body>
+            <declare name="i, minDay" type="Integer" array="False" size=""/>
+            <declare name="c, f, minC" type="Real" array="False" size=""/>
+            <declare name="level, ClothingTip" type="String" array="False" size=""/>
+            <assign variable="minC" expression="100"/>
+            <assign variable="minDay" expression="0"/>
+            <for variable="i" start="1" end="7" direction="inc" step="1">
+                <input variable="c"/>
+                <assign variable="f" expression="c*1.8+32"/>
+                <if expression="c&gt;=0">
+                    <then>
+                        <assign variable="level" expression="&quot;Dulaan&quot;"/>
+                        <assign variable="ClothingTip" expression="&quot;Nimgen,hungun huvtsas&quot;"/>
+                    </then>
+                    <else>
+                        <if expression="c&gt;=-15">
+                            <then>
+                                <assign variable="level" expression="&quot;Huiten&quot;"/>
+                                <assign variable="ClothingTip" expression="&quot;Nimgen kurtik&quot;"/>
+                            </then>
+                            <else>
+                                <if expression="c&gt;=-30">
+                                    <then>
+                                        <assign variable="level" expression="&quot;Mash huiten&quot;"/>
+                                        <assign variable="ClothingTip" expression="&quot;Zuzaan kurtik,malgai,oroolt,beelii&quot;"/>
+                                    </then>
+                                    <else>
+                                        <assign variable="level" expression="&quot;Tas huiten&quot;"/>
+                                        <assign variable="ClothingTip" expression="&quot;Mash zuzaan huvtsas&quot;"/>
+                                    </else>
+                                </if>
+                            </else>
+                        </if>
+                    </else>
+                </if>
+                <output expression="i&amp;&quot;-r udur: &quot;&amp;c&amp;&quot;C=&quot;&amp;f&amp;&quot;F, &quot;&amp;level&amp;&quot;, &quot;&amp;ClothingTip" newline="True"/>
+                <if expression="c&lt;minC">
+                    <then>
+                        <assign variable="minC" expression="c"/>
+                        <assign variable="minDay" expression="i"/>
+                    </then>
+                    <else/>
+                </if>
+            </for>
+            <output expression="&quot;Hamgiin huiten udur:&quot;&amp;minDay&amp;&quot;-r udur,&quot;&amp;minC&amp;&quot;C&quot;" newline="True"/>
+        </body>
+    </function>
+</flowgorithm>
